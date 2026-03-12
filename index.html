@@ -11,39 +11,54 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #fff;
+      background: #ffffff;
       font-family: Arial, sans-serif;
     }
 
-    .iframe-wrap {
+    .wrap {
       width: 100vw;
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
       overflow: hidden;
-      position: relative;
-      background: #fff;
+      background: #ffffff;
     }
 
     iframe {
-      border: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1440px;   /* desktop base width */
-      height: 100vh;
-      transform-origin: top left;
+      border: none;
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
     }
 
-    /* Telefonlar uchun avtomatik kichraytirish */
+    /* Telefon uchun: Figma saytni kichraytirib markazda ko'rsatish */
     @media (max-width: 768px) {
+      .wrap {
+        align-items: flex-start;
+      }
+
       iframe {
-        transform: scale(calc(100vw / 1440));
-        height: calc(100vh / (100vw / 1440));
+        width: 420px;
+        height: 100vh;
+        transform: scale(0.85);
+        transform-origin: top center;
+      }
+    }
+
+    /* Juda tor ekranlar uchun */
+    @media (max-width: 480px) {
+      iframe {
+        width: 420px;
+        height: 100vh;
+        transform: scale(0.72);
+        transform-origin: top center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="iframe-wrap">
+  <div class="wrap">
     <iframe src="https://shell-role-88025916.figma.site"></iframe>
   </div>
 </body>
